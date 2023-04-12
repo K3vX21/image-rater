@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Displaying an image from URL</title>
+    <style>
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      label {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img id="image" src="" alt="Image from URL">
+      <div class="input-container">
+        <label for="image-score">Score:</label>
+        <input type="text" id="image-score" name="image-score" pattern="[0-9]+([.,][0-9]+)?" title="Please enter a decimal value">
+        <button id="score-button">Score</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
