@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Displaying an image from URL</title>
+    <meta charset="UTF-8">
+    <title>Display Images from CSV</title>
     <style>
-      img {
+      #image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      #image-container img {
         max-width: 100%;
-        height: auto;
+        max-height: 100%;
       }
-
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .input-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+      #next-button {
         margin-top: 20px;
-      }
-
-      label {
-        margin-right: 10px;
+        font-size: 18px;
+        padding: 10px 20px;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <img id="image" src="" alt="Image from URL">
-      <div class="input-container">
-        <label for="image-score">Score:</label>
-        <input type="text" id="image-score" name="image-score" pattern="[0-9]+([.,][0-9]+)?" title="Please enter a decimal value">
-        <button id="score-button">Score</button>
-      </div>
+    <div id="image-container">
+      <img id="image" src="" alt="Image">
     </div>
-    <script src="app.js"></script>
+    <button id="next-button">Next Image</button>
+    <script src="script.js"></script>
   </body>
 </html>
