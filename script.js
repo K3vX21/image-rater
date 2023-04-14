@@ -13,13 +13,13 @@ fetch('./local-urls.csv')
     .then(data => {
         // Parse CSV data into an array of image URLs
         imageList = data.split('\n').filter(url => url.trim() !== '');
-        // Initialize imageData with default values
-        imageData = new Array(imageList.length).fill(0);
+        // Initialize imageData array with empty values
+        imageData = new Array(imageList.length).fill(null);
         // Display the first image in the list
         displayImage(imageList[currentIndex]);
     });
 
-// Add event listeners to buttons and input field
+// Add event listeners to buttons
 nextButton.addEventListener('click', () => {
     currentIndex++;
     if (currentIndex >= imageList.length) {
@@ -37,16 +37,14 @@ prevButton.addEventListener('click', () => {
 });
 
 ratingInput.addEventListener('keydown', (event) => {
-    if (event.keyCode === 13) { // Enter key
+    if (event.keyCode === 13) {
         const rating = parseFloat(ratingInput.value);
-        if (!isNaN(rating)) {
-            imageData[currentIndex] = rating;
-        }
+        imageData[currentIndex] = rating;
+        ratingInput.value = '';
         currentIndex++;
         if (currentIndex >= imageList.length) {
             currentIndex = 0;
         }
-        ratingInput.value = "";
         displayImage(imageList[currentIndex]);
     }
 });
